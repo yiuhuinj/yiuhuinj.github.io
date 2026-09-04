@@ -10,7 +10,7 @@
   --c-border: #e6e6e6;
   --c-bg: #ffffff;
   --c-bg-soft: #f7f7f5;
-  --c-accent: #1f3a5f;       /* 深海军蓝，专业克制 */
+  --c-accent: #1f3a5f;
   --c-accent-soft: #eef2f7;
   --c-download: #1f3a5f;
   --c-download-hover: #16273f;
@@ -47,6 +47,21 @@ body {
   border-bottom: 2px solid var(--c-border);
   margin-bottom: 8px;
 }
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hero-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--c-accent);
+  flex-shrink: 0;
+  background: var(--c-bg-soft);
+}
+.hero-text { flex: 1; min-width: 0; }
 .hero-name {
   font-size: 1.9rem;
   font-weight: 700;
@@ -218,6 +233,84 @@ body {
 .skill-desc strong { color: var(--c-text); }
 
 /* ===========================
+   证书图（技能栈内）
+   =========================== */
+.cert-img {
+  display: block;
+  margin-top: 12px;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 4px;
+  cursor: zoom-in;
+  border: 1px solid var(--c-border);
+  transition: opacity 0.15s;
+}
+.cert-img:hover { opacity: 0.85; }
+
+/* ===========================
+   个人相册
+   =========================== */
+.gallery-tip {
+  font-size: 0.82rem;
+  color: var(--c-text-mute);
+  margin: -12px 0 14px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  cursor: zoom-in;
+  border: 1px solid var(--c-border);
+  transition: opacity 0.15s;
+  background: var(--c-bg-soft);
+}
+.gallery-item:hover { opacity: 0.85; }
+
+/* ===========================
+   Lightbox 放大弹窗
+   =========================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox[hidden] { display: none; }
+.lb-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.lb-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 22px;
+  line-height: 38px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.lb-close:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* ===========================
    下载按钮
    =========================== */
 .download-area {
@@ -255,7 +348,7 @@ body {
   justify-content: center;
   width: 26px;
   height: 26px;
-  border: 2px solid rgba(255,255,255,0.85);
+  border: 2px solid rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   font-size: 0.85rem;
   font-weight: 700;
@@ -271,11 +364,18 @@ body {
    =========================== */
 @media (max-width: 768px) {
   .container { padding: 24px 16px 40px; }
-  .hero-name { font-size: 1.65rem; }
+  .hero-inner { gap: 16px; }
+  .hero-avatar { width: 72px; height: 72px; border-width: 2px; }
+  .hero-name { font-size: 1.5rem; }
   .hero-title { font-size: 0.98rem; }
   .section { padding: 24px 0 6px; }
   .section-title { font-size: 1.1rem; }
   .entry-list li { font-size: 0.9rem; }
+  .cert-img { max-width: 240px; }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
+  }
 }
 
 /* ===========================
@@ -285,7 +385,9 @@ body {
   body { font-size: 15px; }
   .container { padding: 20px 14px 32px; }
   .hero { padding: 8px 0 22px; margin-bottom: 4px; }
-  .hero-name { font-size: 1.45rem; }
+  .hero-inner { gap: 12px; }
+  .hero-avatar { width: 60px; height: 60px; }
+  .hero-name { font-size: 1.3rem; }
   .hero-title { font-size: 0.92rem; }
   .hero-tag { font-size: 0.85rem; }
   .section { padding: 20px 0 4px; }
@@ -294,17 +396,24 @@ body {
   .entry-head { flex-direction: column; align-items: flex-start; gap: 4px; }
   .entry-date { font-size: 0.8rem; }
   .info-item { padding: 8px 12px; }
+  .cert-img { max-width: 220px; }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 6px;
+  }
   .btn-download { padding: 14px 18px; font-size: 1rem; }
   .download-area { padding: 24px 14px 4px; margin-top: 28px; }
 }
 
 /* ===========================
-   打印（备用，便于直接输出纸质版）
+   打印（备用）
    =========================== */
 @media print {
   body { background: #fff; font-size: 12pt; }
   .container { max-width: 100%; padding: 0; }
   .download-area { display: none; }
+  .cert-img { display: none; }
+  .gallery-grid { display: none; }
   .info-item, .skill-group { background: #fff; }
   a { color: var(--c-text); text-decoration: none; }
 }

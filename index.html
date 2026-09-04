@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人简历 · 物流管理专业</title>
-  <meta name="description" content="2026级物流管理专业准大一新生个人简历" />
+  <title>李胜飞 · 个人简历</title>
+  <meta name="description" content="2026级物流管理专业准大一新生李胜飞个人简历" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Lightbox 弹窗（全局唯一） -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" aria-label="关闭">×</button>
+    <img class="lb-img" alt="放大预览" />
+  </div>
+
   <main class="container">
 
     <!-- 头部 -->
     <header class="hero">
-      <h1 class="hero-name">李胜飞</h1>
-      <p class="hero-title">2026级准大一新生 · 物流管理（中外合作办学）</p>
-      <p class="hero-tag">四川外国语大学 · 共青团员 · 提前修习 CFA · 学习意愿极强</p>
+      <div class="hero-inner">
+        <img class="hero-avatar" src="img02.jpg" alt="李胜飞 头像" />
+        <div class="hero-text">
+          <h1 class="hero-name">李胜飞</h1>
+          <p class="hero-title">2026级准大一新生 · 物流管理（中外合作办学）</p>
+          <p class="hero-tag">四川外国语大学 · 共青团员 · 提前修习 CFA · 学习意愿极强</p>
+        </div>
+      </div>
     </header>
 
     <!-- 基本信息 -->
@@ -94,18 +106,23 @@
     <section id="skills" class="section">
       <h2 class="section-title"><span class="section-no">04</span>技能栈</h2>
       <div class="skills">
-        <div class="skill-group">
+
+        <div class="skill-group skill-group--cert">
           <h3 class="skill-cat">证书 / AI 应用</h3>
           <p class="skill-desc">持有<strong>阿里巴巴达摩院 AI 训练师官方证书</strong>，掌握 AI 数据处理与常用 AI 工具落地应用，能熟练借助 AI 提升信息整理、任务规划效率。</p>
+          <img class="cert-img" src="certificate.jpg" alt="AI 训练师官方证书（点击放大）" />
         </div>
+
         <div class="skill-group">
           <h3 class="skill-cat">客户沟通</h3>
           <p class="skill-desc">拥有直面需求、对接协调的实际经验，擅长快速捕捉对方核心诉求，完成顺畅的双向沟通。</p>
         </div>
+
         <div class="skill-group">
           <h3 class="skill-cat">基础应用</h3>
           <p class="skill-desc">熟练使用 Office 办公三件套，具备清晰的文字整理与数据基础梳理能力。</p>
         </div>
+
       </div>
     </section>
 
@@ -128,9 +145,30 @@
       </div>
     </section>
 
+    <!-- 个人相册 -->
+    <section id="gallery" class="section">
+      <h2 class="section-title"><span class="section-no">06</span>个人相册</h2>
+      <p class="gallery-tip">点击图片可放大查看</p>
+      <div class="gallery-grid">
+        <img class="gallery-item" src="img01.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img03.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img04.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img05.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img06.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img07.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img08.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img09.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img10.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img11.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img12.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img13.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img14.jpg" alt="摄影作品" />
+      </div>
+    </section>
+
     <!-- 联系方式 -->
     <section id="contact" class="section">
-      <h2 class="section-title"><span class="section-no">06</span>联系方式</h2>
+      <h2 class="section-title"><span class="section-no">07</span>联系方式</h2>
       <div class="grid-basic">
         <div class="info-item">
           <span class="info-label">联系电话</span>
@@ -157,5 +195,46 @@
     </footer>
 
   </main>
+
+  <!-- Lightbox 放大脚本 -->
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var bigImg = box.querySelector('.lb-img');
+      var closeBtn = box.querySelector('.lb-close');
+
+      function open(src) {
+        bigImg.src = src;
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        box.hidden = true;
+        bigImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      // 证书图点击放大
+      var cert = document.querySelector('.cert-img');
+      if (cert) cert.addEventListener('click', function () { open(cert.src); });
+
+      // 相册点击放大（事件委托，支持后续新增）
+      document.addEventListener('click', function (e) {
+        if (e.target.classList && e.target.classList.contains('gallery-item')) {
+          open(e.target.src);
+        }
+      });
+
+      // 关闭方式：点遮罩、点 ×、按 Esc
+      closeBtn.addEventListener('click', close);
+      box.addEventListener('click', function (e) {
+        if (e.target === box) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) close();
+      });
+    })();
+  </script>
+
 </body>
 </html>
