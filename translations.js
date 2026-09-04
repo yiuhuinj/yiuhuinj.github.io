@@ -42,8 +42,8 @@
 var I18N = {
   "zh-CN": {
     lang_label: "中文",
-    hero_title: "2026级准大一新生 · 物流管理（中外合作办学）",
-    hero_tag: "四川外国语大学 · 共青团员 · CFA 提前修习",
+    hero_title: "AI 训练师 · CFA 提前修习 · 跨领域学习者",
+    hero_tag: "摄影 / 音乐 / 健身 · 实践驱动 · 持续成长",
     section_basic: "基本信息",
     section_education: "教育经历",
     section_projects: "项目经验",
@@ -95,8 +95,8 @@ var I18N = {
   },
   "en": {
     lang_label: "English",
-    hero_title: "Incoming Freshman 2026 · Logistics Management (Sino-Foreign Program)",
-    hero_tag: "Sichuan International Studies Univ. · CYL Member · CFA Preparatory Studies",
+    hero_title: "AI Trainer · CFA Preparatory Studies · Cross-Disciplinary Learner",
+    hero_tag: "Photography / Music / Fitness · Practice-Driven · Continuous Growth",
     section_basic: "Basic Info",
     section_education: "Education",
     section_projects: "Experience",
@@ -148,8 +148,8 @@ var I18N = {
   },
   "fr": {
     lang_label: "Français",
-    hero_title: "Étudiant entrant 2026 · Gestion logistique (programme sino-étranger)",
-    hero_tag: "Univ. des Études Internationales du Sichuan · Membre LJC · Préparation CFA",
+    hero_title: "Formateur IA · Préparation CFA · Apprenant multidisciplinaire",
+    hero_tag: "Photographie / Musique / Fitness · Orienté pratique · Amélioration continue",
     section_basic: "Informations",
     section_education: "Formation",
     section_projects: "Expérience",
@@ -201,8 +201,8 @@ var I18N = {
   },
   "ja": {
     lang_label: "日本語",
-    hero_title: "2026年度新入生予定 · 物流管理（中外合作プログラム）",
-    hero_tag: "四川外国語大学 · 共青团員 · CFA 準備学習",
+    hero_title: "AIトレーナー · CFA先行学習 · 分野横断型学習者",
+    hero_tag: "写真 / 音楽 / フィットネス · 実践重視 · 継続的成長",
     section_basic: "基本情報",
     section_education: "学歴",
     section_projects: "経験",
@@ -254,8 +254,8 @@ var I18N = {
   },
   "ru": {
     lang_label: "Русский",
-    hero_title: "Будущий первокурсник 2026 · Логистический менеджмент (китайско-иностранная программа)",
-    hero_tag: "Сычуаньский университет международных исследований · Член ЛКСМ · Подготовка к CFA",
+    hero_title: "Тренер ИИ · Подготовка к CFA · Междисциплинарный учащийся",
+    hero_tag: "Фотография / Музыка / Фитнес · Практико-ориентированный · Постоянное развитие",
     section_basic: "Основная информация",
     section_education: "Образование",
     section_projects: "Опыт",
@@ -307,8 +307,8 @@ var I18N = {
   },
   "ar": {
     lang_label: "العربية",
-    hero_title: "طالب مستقبلي 2026 · إدارة الخدمات اللوجستية (برنامج صيني-أجنبي)",
-    hero_tag: "جامعة سيتشوان للدراسات الدولية · عضو رابطة الشباب الشيوعي · دراسة CFA المبكرة",
+    hero_title: "مدرب ذكاء اصطناعي · دراسة CFA مبكرة · متعلم متعدد التخصصات",
+    hero_tag: "تصوير / موسيقى / لياقة · مدفوع بالممارسة · نمو مستمر",
     section_basic: "المعلومات الأساسية",
     section_education: "التعليم",
     section_projects: "الخبرة",
