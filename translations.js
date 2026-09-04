@@ -426,37 +426,41 @@ var I18N = {
   applyLang(currentLang);
   updateToggleLabel(currentLang);
 
-  // 下拉菜单交互
+  // 下拉菜单交互 — 直接绑定每个选项
   var toggle = document.getElementById('langToggle');
   var menu = document.getElementById('langMenu');
 
-  toggle.addEventListener('click', function () {
-    var isHidden = menu.hasAttribute('hidden');
-    if (isHidden) {
-      menu.removeAttribute('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    } else {
-      menu.setAttribute('hidden', '');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  menu.addEventListener('click', function (e) {
-    var option = e.target.closest('.lang-option');
-    if (!option) return;
-    var lang = option.getAttribute('data-lang');
-    applyLang(lang);
-    updateToggleLabel(lang);
+  function openMenu() {
+    menu.removeAttribute('hidden');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
     menu.setAttribute('hidden', '');
     toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (menu.hasAttribute('hidden')) { openMenu(); } else { closeMenu(); }
+  });
+
+  // 给每个选项直接绑定（不用事件委托）
+  var options = document.querySelectorAll('.lang-option');
+  options.forEach(function (opt) {
+    opt.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var lang = opt.getAttribute('data-lang');
+      applyLang(lang);
+      updateToggleLabel(lang);
+      closeMenu();
+    });
   });
 
   // 点击外部关闭
   document.addEventListener('click', function (e) {
     if (!menu.hasAttribute('hidden')) {
       if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-        menu.setAttribute('hidden', '');
-        toggle.setAttribute('aria-expanded', 'false');
+        closeMenu();
       }
     }
   });
@@ -464,8 +468,7 @@ var I18N = {
   // Esc 关闭
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !menu.hasAttribute('hidden')) {
-      menu.setAttribute('hidden', '');
-      toggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     }
   });
 })();
