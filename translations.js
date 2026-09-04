@@ -340,6 +340,66 @@ var I18N = {
     alt_cert: "Официальный сертификат тренера ИИ (нажмите для увеличения)",
     alt_gallery: "Личная работа"
   },
+  "es": {
+    lang_label: "Español",
+    hero_title: "Entrenador de IA · Estudio anticipado de CFA · Aprendiz multidisciplinario",
+    hero_tag: "Fotografía / Música / Fitness · Orientado a la práctica · Crecimiento continuo",
+    section_basic: "Información básica",
+    section_education: "Educación",
+    section_projects: "Experiencia",
+    section_skills: "Habilidades",
+    section_interests: "Intereses",
+    section_intentions: "Puestos objetivo",
+    intention1_title: "Centro de Innovación y Empleo del Campus",
+    intention1_desc: "Aspiro a unirme al Centro de Innovación y Empleo, contribuyendo con mis habilidades prácticas y de comunicación a las actividades de innovación del campus, mientras amplío mi visión y acumulo experiencia.",
+    intention2_title: "Asociación de Voluntarios",
+    intention2_desc: "Con pasión por el servicio, dedicado al bienestar público y voluntariado del campus, difundiendo calidez y mejorando el trabajo en equipo y la responsabilidad social.",
+    intention3_title: "Asociación de Ciencia y Tecnología del Campus",
+    intention3_desc: "Interesado en la ciencia y la innovación, espero participar en actividades de divulgación científica e intercambios académicos para ampliar conocimientos y mejorar la alfabetización tecnológica.",
+    section_gallery: "Obras personales",
+    section_contact: "Contacto",
+    label_name: "Nombre",
+    label_age: "Edad",
+    label_identity: "Estado",
+    label_political: "Afiliación política",
+    label_school: "Universidad y especialidad",
+    label_school2: "Universidad",
+    label_phone: "Teléfono",
+    label_email: "Correo electrónico",
+    value_identity: "Futuro estudiante de primer año 2026",
+    value_political: "Miembro de la Liga de la Juventud Comunista",
+    value_school: "Universidad de Estudios Internacionales de Sichuan · Gestión Logística (Programa Sino-Extranjero)",
+    value_school2: "Universidad de Estudios Internacionales de Sichuan · Gestión Logística (Programa Sino-Extranjero)",
+    edu_title: "Universidad de Estudios Internacionales de Sichuan · Gestión Logística (Programa Sino-Extranjero)",
+    edu_in_progress: "En curso",
+    edu_p1: "Matriculado en el programa cooperativo sino-extranjero 2026, cursando asignaturas bilingües de logística. Cuenta con ventajas en idiomas extranjeros y visión logística internacional.",
+    edu_p2: "Calificado para la vía de recomendación y ha comenzado el estudio sistemático del programa CFA por adelantado.",
+    proj1_title: "Proyecto práctico independiente de libros usados en el campus",
+    proj1_role: "Iniciativa estudiantil · Ejecución integral independiente",
+    proj1_p1: "Completó de forma independiente la operación integral de libros usados: selección de productos, coordinación de proveedores, puntos de venta offline, comunicación con clientes. Atendió a más de cien profesores y estudiantes.",
+    proj1_p2: "Respondió con flexibilidad a necesidades personalizadas en la comunicación con los clientes, acumulando experiencia práctica de primera línea.",
+    proj2_title: "Práctica veraniega a tiempo completo en múltiples puestos",
+    proj2_date: "Vacaciones de verano de varios años académicos",
+    proj2_role: "Ejecución de primera línea · Rotación en puestos operativos",
+    proj2_p1: "Participación a largo plazo en diversos trabajos de verano a tiempo completo. Se adaptó al ritmo laboral, desarrollando un estilo de trabajo ejecutivo y de fuerte compromiso.",
+    skill1_cat: "Certificados / Aplicación de IA",
+    skill1_desc: "Poseedor del certificado oficial de Entrenador de IA de la Academia DAMO de Alibaba. Domina el procesamiento de datos de IA y la aplicación de herramientas.",
+    skill2_cat: "Comunicación con clientes",
+    skill2_desc: "Experiencia práctica en enfrentar necesidades y coordinar. Bueno para captar rápidamente las demandas centrales y lograr una comunicación bidireccional fluida.",
+    skill3_cat: "Aplicaciones básicas",
+    skill3_desc: "Manejo competente de la suite Office (Word, PowerPoint, Excel). Capacidad clara de organización de documentos y clasificación básica de datos.",
+    interest1_cat: "📷 Fotografía",
+    interest1_desc: "Apasionado por registrar la vida y los detalles de las escenas cotidianas. Domina técnicas básicas de fotografía y edición.",
+    interest2_cat: "🎵 Música",
+    interest2_desc: "Amor de larga data por la música con buena percepción estética. Puede dinamizar el ambiente del equipo.",
+    interest3_cat: "💪 Fitness",
+    interest3_desc: "Rutina de ejercicio regular. Cuerpo fuerte y voluntad inquebrantable. Se adapta a ritmos de práctica de alta intensidad.",
+    gallery_tip: "Haga clic en la imagen para ampliarla",
+    btn_download: "Descargar currículum completo (PDF)",
+    download_tip: "Haga clic en el botón para guardar el PDF en su dispositivo",
+    alt_cert: "Certificado oficial de Entrenador de IA (haga clic para ampliar)",
+    alt_gallery: "Obra personal"
+  },
   "ar": {
     lang_label: "العربية",
     hero_title: "مدرب ذكاء اصطناعي · دراسة CFA مبكرة · متعلم متعدد التخصصات",
@@ -408,7 +468,7 @@ var I18N = {
 (function () {
   var STORAGE_KEY = 'resume_lang';
   var DEFAULT_LANG = 'zh-CN';
-  var SUPPORTED = ['zh-CN', 'en', 'fr', 'ja', 'ru', 'ar'];
+  var SUPPORTED = ['zh-CN', 'en', 'fr', 'ja', 'ru', 'es', 'ar'];
 
   function getLang() {
     try {
@@ -421,6 +481,7 @@ var I18N = {
     if (nav.indexOf('fr') === 0) return 'fr';
     if (nav.indexOf('ja') === 0) return 'ja';
     if (nav.indexOf('ru') === 0) return 'ru';
+    if (nav.indexOf('es') === 0) return 'es';
     if (nav.indexOf('ar') === 0) return 'ar';
     return DEFAULT_LANG;
   }
