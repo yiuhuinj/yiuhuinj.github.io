@@ -49,7 +49,7 @@ var I18N = {
     section_projects: "项目经验",
     section_skills: "技能栈",
     section_interests: "兴趣特长",
-    section_gallery: "个人相册",
+    section_gallery: "个人作品",
     section_contact: "联系方式",
     label_name: "姓名",
     label_age: "年龄",
@@ -102,7 +102,7 @@ var I18N = {
     section_projects: "Experience",
     section_skills: "Skills",
     section_interests: "Interests",
-    section_gallery: "Gallery",
+    section_gallery: "Personal Works",
     section_contact: "Contact",
     label_name: "Name",
     label_age: "Age",
@@ -303,7 +303,7 @@ var I18N = {
     btn_download: "Скачать полное резюме (PDF)",
     download_tip: "Нажмите кнопку, чтобы сохранить PDF на устройство",
     alt_cert: "Официальный сертификат тренера ИИ (нажмите для увеличения)",
-    alt_gallery: "Фоторабота"
+    alt_gallery: "Личная работа"
   },
   "ar": {
     lang_label: "العربية",
@@ -314,7 +314,7 @@ var I18N = {
     section_projects: "الخبرة",
     section_skills: "المهارات",
     section_interests: "الاهتمامات",
-    section_gallery: "معرض الصور",
+    section_gallery: "الأعمال الشخصية",
     section_contact: "الاتصال",
     label_name: "الاسم",
     label_age: "العمر",
@@ -356,7 +356,7 @@ var I18N = {
     btn_download: "تحميل السيرة الذاتية الكاملة (PDF)",
     download_tip: "انقر على الزر لحفظ ملف PDF على جهازك",
     alt_cert: "شهادة مدرب الذكاء الاصطناعي الرسمية (انقر للتكبير)",
-    alt_gallery: "عمل فوتوغرافي"
+    alt_gallery: "عمل شخصي"
   }
 };
 
