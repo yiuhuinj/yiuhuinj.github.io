@@ -11,18 +11,18 @@
 
   <!-- 语言选择器 -->
   <nav class="lang-bar" aria-label="语言切换">
-    <button class="lang-btn" id="langToggle" aria-haspopup="true" aria-expanded="false">
+    <button class="lang-btn" id="langToggle" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu()">
       <span class="lang-btn-icon">🌐</span>
       <span class="lang-btn-label" data-i18n-key="lang_label">中文</span>
       <span class="lang-btn-caret">▾</span>
     </button>
     <ul class="lang-menu" id="langMenu" role="listbox" hidden>
-      <li role="option" data-lang="zh-CN" class="lang-option is-active">🇨🇳 中文</li>
-      <li role="option" data-lang="en">🇬🇧 English</li>
-      <li role="option" data-lang="fr">🇫🇷 Français</li>
-      <li role="option" data-lang="ja">🇯🇵 日本語</li>
-      <li role="option" data-lang="ru">🇷🇺 Русский</li>
-      <li role="option" data-lang="ar">🇸🇦 العربية</li>
+      <li role="option" class="lang-option is-active" onclick="chooseLang('zh-CN')">🇨🇳 中文</li>
+      <li role="option" class="lang-option" onclick="chooseLang('en')">🇬🇧 English</li>
+      <li role="option" class="lang-option" onclick="chooseLang('fr')">🇫🇷 Français</li>
+      <li role="option" class="lang-option" onclick="chooseLang('ja')">🇯🇵 日本語</li>
+      <li role="option" class="lang-option" onclick="chooseLang('ru')">🇷🇺 Русский</li>
+      <li role="option" class="lang-option" onclick="chooseLang('ar')">🇸🇦 العربية</li>
     </ul>
   </nav>
 

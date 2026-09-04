@@ -1,5 +1,43 @@
 /* ===========================
-   多语言翻译字典（6 语言）
+   Lightbox 放大弹窗
+   =========================== */
+(function () {
+  var box = document.getElementById('lightbox');
+  if (!box) return;
+  var bigImg = box.querySelector('.lb-img');
+  var closeBtn = box.querySelector('.lb-close');
+
+  function open(src) {
+    bigImg.src = src;
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    box.hidden = true;
+    bigImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  var cert = document.querySelector('.cert-img');
+  if (cert) cert.addEventListener('click', function () { open(cert.src); });
+
+  document.addEventListener('click', function (e) {
+    if (e.target.classList && e.target.classList.contains('gallery-item')) {
+      open(e.target.src);
+    }
+  });
+
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', function (e) {
+    if (e.target === box) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !box.hidden) close();
+  });
+})();
+
+/* ===========================
+   6 语言翻译字典
    =========================== */
 var I18N = {
   "zh-CN": {
@@ -80,28 +118,28 @@ var I18N = {
     value_school2: "Sichuan International Studies University · Logistics Management (Sino-Foreign Program)",
     edu_title: "Sichuan International Studies University · Logistics Management (Sino-Foreign Program)",
     edu_in_progress: "In Progress",
-    edu_p1: "Enrolled in the 2026 Sino-Foreign cooperative program, taking bilingual logistics courses from both Chinese and international curricula. Possesses foreign language advantages and an international logistics perspective. Planned a full-cycle university learning path in advance.",
-    edu_p2: "Qualified for the recommendation pathway and started systematic CFA program studies ahead of schedule, building foundational knowledge in finance and interdisciplinary compound capabilities.",
+    edu_p1: "Enrolled in the 2026 Sino-Foreign cooperative program, taking bilingual logistics courses. Possesses foreign language advantages and an international logistics perspective.",
+    edu_p2: "Qualified for the recommendation pathway and started systematic CFA program studies ahead of schedule.",
     proj1_title: "Campus Secondhand Book Independent Practice Project",
     proj1_role: "Student-Initiated · End-to-End Execution",
-    proj1_p1: "Independently completed full-link operations for secondhand books at high schools and surrounding campuses: product selection, supplier coordination, offline point arrangement, and customer communication. Served over one hundred teachers and students, achieving full planned sales volume.",
-    proj1_p2: "Flexibly responded to personalized needs in customer communication, accumulating frontline experience and problem-solving capabilities.",
+    proj1_p1: "Independently completed full-link operations for secondhand books: product selection, supplier coordination, offline points, customer communication. Served over one hundred teachers and students.",
+    proj1_p2: "Flexibly responded to personalized needs in customer communication, accumulating frontline experience.",
     proj2_title: "Multi-Position Summer Full-Time Practice",
     proj2_date: "Summer Vacations of Multiple Academic Years",
     proj2_role: "Frontline Execution · Grassroots Rotation",
-    proj2_p1: "Long-term participation in various full-time summer jobs during winter and summer vacations, focusing on frontline execution. Adapted to workplace rhythm, developed a non-avoidant, strong-execution work style, and can quickly learn unfamiliar tasks.",
+    proj2_p1: "Long-term participation in various full-time summer jobs. Adapted to workplace rhythm, developed a strong-execution work style, and quickly learns unfamiliar tasks.",
     skill1_cat: "Certificates / AI",
-    skill1_desc: "Holder of Alibaba DAMO Academy official AI Trainer certificate. Proficient in AI data processing and tool application, able to leverage AI to boost work efficiency.",
+    skill1_desc: "Holder of Alibaba DAMO Academy official AI Trainer certificate. Proficient in AI data processing and tool application.",
     skill2_cat: "Client Communication",
-    skill2_desc: "Practical experience in facing needs and coordination. Good at quickly capturing core demands and completing smooth two-way communication.",
+    skill2_desc: "Practical experience in facing needs and coordination. Good at quickly capturing core demands.",
     skill3_cat: "Office Suite",
     skill3_desc: "Proficient in Office Suite (Word, PowerPoint, Excel). Has clear document organization and basic data sorting capabilities.",
     interest1_cat: "📷 Photography",
-    interest1_desc: "Passionate about documenting life and scene details. Master basic shooting and editing skills. Can assist with event documentation and material organization.",
+    interest1_desc: "Passionate about documenting life and scene details. Master basic shooting and editing skills.",
     interest2_cat: "🎵 Music",
-    interest2_desc: "Long-term passion for music with good aesthetic perception. Can enliven team atmosphere and adapt to group activity needs.",
+    interest2_desc: "Long-term passion for music with good aesthetic perception. Can enliven team atmosphere.",
     interest3_cat: "💪 Fitness",
-    interest3_desc: "Regular fitness routine. Strong body and a strong-willed spirit. Can adapt to high-intensity practice and volunteer activity rhythms.",
+    interest3_desc: "Regular fitness routine. Strong body and a strong-willed spirit. Adapts to high-intensity rhythms.",
     gallery_tip: "Click any image to enlarge",
     btn_download: "Download Full Resume (PDF)",
     download_tip: "Click the button to save the PDF to your device",
@@ -133,28 +171,28 @@ var I18N = {
     value_school2: "Université des Études Internationales du Sichuan · Gestion logistique (programme sino-étranger)",
     edu_title: "Université des Études Internationales du Sichuan · Gestion logistique (programme sino-étranger)",
     edu_in_progress: "En cours",
-    edu_p1: "Inscrit au programme sino-étranger 2026, suit des cours de logistique bilingues des curriculums chinois et internationaux. Dispose d'avantages linguistiques et d'une perspective internationale en logistique. A planifié à l'avance son parcours universitaire complet.",
-    edu_p2: "Qualifié pour le parcours de recommandation et a commencé les études systématiques du programme CFA avant l'échéance, construisant une base de connaissances financières et des capacités interdisciplinaires.",
+    edu_p1: "Inscrit au programme sino-étranger 2026, suit des cours de logistique bilingues. Dispose d'avantages linguistiques et d'une perspective internationale.",
+    edu_p2: "Qualifié pour le parcours de recommandation et a commencé les études systématiques du programme CFA avant l'échéance.",
     proj1_title: "Projet pratique indépendant de livres d'occasion sur le campus",
     proj1_role: "Initié par l'étudiant · Exécution de bout en bout",
-    proj1_p1: "A achevé indépendamment les opérations complètes de livres d'occasion dans les lycées et campus environnants : sélection, coordination fournisseurs, points de vente hors ligne, communication client. A servi plus d'une centaine d'enseignants et d'étudiants, atteignant le volume de vente prévu.",
-    proj1_p2: "A répondu flexiblement aux besoins personnalisés dans la communication client, accumulant une expérience de premier contact et des capacités de résolution de problèmes.",
+    proj1_p1: "A achevé indépendamment les opérations complètes de livres d'occasion: sélection, coordination fournisseurs, communication client. A servi plus d'une centaine d'enseignants et d'étudiants.",
+    proj1_p2: "A répondu flexiblement aux besoins personnalisés, accumulant une expérience de premier contact.",
     proj2_title: "Stage estival à temps plein dans plusieurs postes",
     proj2_date: "Pendant les vacances d'été de plusieurs années académiques",
     proj2_role: "Exécution de terrain · Rotation de postes",
-    proj2_p1: "Participation à long terme à divers emplois d'été à temps plein pendant les vacances. S'est adapté au rythme du monde professionnel, a développé un style de travail sans détours et exécutif, et apprend rapidement des tâches inconnues.",
+    proj2_p1: "Participation à long terme à divers emplois d'été à temps plein. S'est adapté au rythme du monde professionnel, a développé un style de travail exécutif.",
     skill1_cat: "Certificats / IA",
-    skill1_desc: "Titulaire du certificat officiel de Formateur IA de l'Académie DAMO d'Alibaba. Maîtrise le traitement de données IA et l'application d'outils IA, capable d'utiliser l'IA pour accroître l'efficacité professionnelle.",
+    skill1_desc: "Titulaire du certificat officiel de Formateur IA de l'Académie DAMO d'Alibaba. Maîtrise le traitement de données IA.",
     skill2_cat: "Communication client",
-    skill2_desc: "Expérience pratique face aux besoins et à la coordination. Bonne capacité à saisir rapidement les demandes essentielles et à établir une communication bidirectionnelle fluide.",
+    skill2_desc: "Expérience pratique face aux besoins et à la coordination. Bonne capacité à saisir rapidement les demandes essentielles.",
     skill3_cat: "Suite Office",
-    skill3_desc: "Maîtrise de la Suite Office (Word, PowerPoint, Excel). Capacités claires d'organisation de documents et de tri de données de base.",
+    skill3_desc: "Maîtrise de la Suite Office (Word, PowerPoint, Excel). Capacités d'organisation de documents et de tri de données.",
     interest1_cat: "📷 Photographie",
-    interest1_desc: "Passionné par la documentation de la vie et des détails de scènes. Maîtrise les techniques de base de prise de vue et de retouche. Peut aider à la documentation d'événements et à l'organisation de matériel.",
+    interest1_desc: "Passionné par la documentation de la vie et des détails de scènes. Maîtrise les techniques de base de prise de vue.",
     interest2_cat: "🎵 Musique",
-    interest2_desc: "Passion de longue date pour la musique avec une bonne perception esthétique. Peut animer l'atmosphère d'équipe et s'adapter aux besoins des activités de groupe.",
+    interest2_desc: "Passion de longue date pour la musique avec une bonne perception esthétique. Peut animer l'atmosphère d'équipe.",
     interest3_cat: "💪 Fitness",
-    interest3_desc: "Routine de fitness régulière. Corps fort et esprit volontaire. S'adapte au rythme des pratiques intensives et des activités bénévoles.",
+    interest3_desc: "Routine de fitness régulière. Corps fort et esprit volontaire. S'adapte au rythme des pratiques intensives.",
     gallery_tip: "Cliquez sur une image pour l'agrandir",
     btn_download: "Télécharger le CV complet (PDF)",
     download_tip: "Cliquez sur le bouton pour enregistrer le PDF",
@@ -186,28 +224,28 @@ var I18N = {
     value_school2: "四川外国語大学 · 物流管理専攻（中外合作プログラム）",
     edu_title: "四川外国語大学 · 物流管理専攻（中外合作プログラム）",
     edu_in_progress: "在学中",
-    edu_p1: "2026年度中外合作プログラムに在籍し、中国と国際両方のカリキュラムによるバイリンガル物流コースを履修。語学力の強みと国際物流の視点を持ち、大学全周期の学習計画を事前に立案済み。",
-    edu_p2: "推薦ルートを通過し、CFAプログラムの体系的学習を前倒しで開始。金融基礎知識の枠組みを構築し、分野横断的な複合能力の基礎を形成。",
+    edu_p1: "2026年度中外合作プログラムに在籍し、バイリンガル物流コースを履修。語学力の強みと国際物流の視点を持つ。",
+    edu_p2: "推薦ルートを通過し、CFAプログラムの体系的学習を前倒しで開始。",
     proj1_title: "キャンパス中古書籍自主実践プロジェクト",
     proj1_role: "学生主導 · 全リンク独立実行",
-    proj1_p1: "高校及び周辺キャンパスの中古書籍全リンク運営を独立して実施：商品選定、供給元調整、オフライン拠点設置、顧客対応。100名以上の教師・学生にサービスを提供し、計画販売量を全達成。",
-    proj1_p2: "顧客コミュニケーションにおいて個別ニーズに柔軟に対応し、現場での対応経験と迅速な問題解決能力を蓄積。",
+    proj1_p1: "中古書籍全リンク運営を独立して実施：商品選定、供給元調整、顧客対応。100名以上の教師・学生にサービス提供。",
+    proj1_p2: "顧客コミュニケーションにおいて個別ニーズに柔軟に対応し、現場経験を蓄積。",
     proj2_title: "複数ポジション夏季フルタイム実践",
     proj2_date: "複数年度の夏休み期間",
     proj2_role: "現場実行 · 基层ローテーション",
-    proj2_p1: "長期的に寒暑假を利用して多様なフルタイム夏季アルバイトに従事。現場実行を深耕し、職場リズムに適応。責任回避しない強い実行力のある働き方を身につけ、未知のタスクも迅速に習得可能。",
+    proj2_p1: "長期的に多様な夏季アルバイトに従事。職場リズムに適応し、強い実行力のある働き方を身につける。",
     skill1_cat: "資格 / AI応用",
-    skill1_desc: "アリババダモ院AIトレーナー公式資格保有。AIデータ処理とツール活用を習得し、AIを活用して業務効率を向上させる能力あり。",
+    skill1_desc: "アリババダモ院AIトレーナー公式資格保有。AIデータ処理とツール活用を習得。",
     skill2_cat: "顧客コミュニケーション",
-    skill2_desc: "ニーズに直面し調整する実務経験あり。相手の核心的な要求を迅速に捉え、スムーズな双方向コミュニケーションを達成するのが得意。",
+    skill2_desc: "ニーズに直面し調整する実務経験あり。相手の核心的な要求を迅速に捉えるのが得意。",
     skill3_cat: "基本アプリケーション",
     skill3_desc: "Office三種類（Word、PowerPoint、Excel）を熟练に使用。明確な文章整理と基本的なデータ整理能力あり。",
     interest1_cat: "📷 写真",
-    interest1_desc: "日常的に生活や場面の細部を記録するのが好き。基本的な撮影と画像加工技術を習得し、イベント記録や素材整理を補助可能。",
+    interest1_desc: "日常的に生活や場面の細部を記録するのが好き。基本的な撮影と画像加工技術を習得。",
     interest2_cat: "🎵 音楽",
-    interest2_desc: "長期的に音楽を愛好し、良好な審美的感受性を持つ。チームの雰囲気を盛り上げ、集団活動のニーズに適応可能。",
+    interest2_desc: "長期的に音楽を愛好し、良好な審美的感受性を持つ。チームの雰囲気を盛り上げられる。",
     interest3_cat: "💪 フィットネス",
-    interest3_desc: "長期的に規則正しくトレーニングを実施。強健な体と不屈の意志力を持ち、高強度の実践やボランティア活動のリズムに適応可能。",
+    interest3_desc: "長期的に規則正しくトレーニングを実施。強健な体と不屈の意志力。",
     gallery_tip: "クリックで写真を拡大表示",
     btn_download: "PDF完全版履歴書をダウンロード",
     download_tip: "ボタンをクリックするとPDFが保存されます",
@@ -239,28 +277,28 @@ var I18N = {
     value_school2: "Сычуаньский университет международных исследований · Логистический менеджмент (китайско-иностранная программа)",
     edu_title: "Сычуаньский университет международных исследований · Логистический менеджмент (китайско-иностранная программа)",
     edu_in_progress: "В процессе",
-    edu_p1: "Зачислен по китайско-иностранной программе 2026 года, изучает двуязычные курсы логистики по китайской и международной программам. Обладает преимуществами в иноязычном применении и международным логистическим кругозором. Заранее спланировал полный университетский учебный путь.",
-    edu_p2: "Прошёл по рекомендованному пути и заранее начал системное изучение программы CFA, формируя базовые знания в финансах и междисциплинарные комплексные способности.",
+    edu_p1: "Зачислен по китайско-иностранной программе 2026 года, изучает двуязычные курсы логистики. Обладает преимуществами в иноязычном применении.",
+    edu_p2: "Прошёл по рекомендованному пути и начал системное изучение программы CFA.",
     proj1_title: "Самостоятельный проект практики подержанных книг на кампусе",
     proj1_role: "Инициатор-студент · Полный цикл независимо",
-    proj1_p1: "Самостоятельно осуществил полный цикл операций с подержанными книгами в средних школах и соседних кампусах: выбор товара, координация с поставщиками, организация офлайн-точек, работа с клиентами. Обслужил более ста преподавателей и студентов, выполнил весь запланированный объём продаж.",
-    proj1_p2: "Гибко реагировал на индивидуальные потребности в общении с клиентами, накопил опыт работы на передовой и способности быстро решать проблемы.",
+    proj1_p1: "Самостоятельно осуществил полный цикл операций с подержанными книгами. Обслужил более ста преподавателей и студентов.",
+    proj1_p2: "Гибко реагировал на индивидуальные потребности, накопил опыт работы на передовой.",
     proj2_title: "Летняя полная занятость на нескольких должностях",
     proj2_date: "Летние каникулы нескольких учебных лет",
     proj2_role: "Работа на передовой · Ротация на базовых должностях",
-    proj2_p1: "Долгосрочно участвует в различных летних полных вакансиях во время зимних и летних каникул. Углублённо работает на передовой, адаптируется к ритму работы, выработал стиль без уклонений и сильной исполнительности, быстро осваивает незнакомые задачи.",
+    proj2_p1: "Долгосрочно участвует в различных летних полных вакансиях. Адаптируется к ритму работы, выработал сильную исполнительность.",
     skill1_cat: "Сертификаты / ИИ",
-    skill1_desc: "Обладатель официального сертификата тренера ИИ Академии DAMO Alibaba. Владеет обработкой данных ИИ и применением инструментов ИИ, способен использовать ИИ для повышения эффективности работы.",
+    skill1_desc: "Обладатель официального сертификата тренера ИИ Академии DAMO Alibaba. Владеет обработкой данных ИИ.",
     skill2_cat: "Общение с клиентами",
-    skill2_desc: "Практический опыт работы с потребностями и координации. Умеет быстро выделять ключевые требования и обеспечивать плавную двустороннюю коммуникацию.",
+    skill2_desc: "Практический опыт работы с потребностями и координации. Умеет быстро выделять ключевые требования.",
     skill3_cat: "Офисные приложения",
-    skill3_desc: "Свободно владеет Office Suite (Word, PowerPoint, Excel). Имеет чёткие навыки整理 документов и базовой обработки данных.",
+    skill3_desc: "Свободно владеет Office Suite (Word, PowerPoint, Excel). Чёткие навыки整理 документов и базовой обработки данных.",
     interest1_cat: "📷 Фотография",
-    interest1_desc: "Ежедневно любит документировать детали жизни и сцен. Владеет базовыми приёмами съёмки и обработки фотографий, может помочь с документированием мероприятий и организацией материалов.",
+    interest1_desc: "Ежедневно любит документировать детали жизни и сцен. Владеет базовыми приёмами съёмки.",
     interest2_cat: "🎵 Музыка",
-    interest2_desc: "Долгосрочная любовь к музыке с хорошим эстетическим восприятием. Может оживлять атмосферу команды, адаптируется к потребностям коллективных мероприятий.",
+    interest2_desc: "Долгосрочная любовь к музыке с хорошим эстетическим восприятием. Может оживлять атмосферу команды.",
     interest3_cat: "💪 Фитнес",
-    interest3_desc: "Регулярные тренировки. Крепкое телосложение и непреклонная воля. Адаптируется к интенсивным практикам и ритму волонтёрской деятельности.",
+    interest3_desc: "Регулярные тренировки. Крепкое телосложение и непреклонная воля. Адаптируется к интенсивным практикам.",
     gallery_tip: "Нажмите на изображение для увеличения",
     btn_download: "Скачать полное резюме (PDF)",
     download_tip: "Нажмите кнопку, чтобы сохранить PDF на устройство",
@@ -292,28 +330,28 @@ var I18N = {
     value_school2: "جامعة سيتشوان للدراسات الدولية · إدارة الخدمات اللوجستية (برنامج صيني-أجنبي)",
     edu_title: "جامعة سيتشوان للدراسات الدولية · إدارة الخدمات اللوجستية (برنامج صيني-أجنبي)",
     edu_in_progress: "قيد الدراسة",
-    edu_p1: "مسجل في برنامج 2026 الصيني-الأجنبي، يدرس مقررات لوجستية ثنائية اللغة من المناهج الصينية والدولية. يتمتع بمزايا التطبيق اللغوي الأجنبي ومنظور اللوجستيات الدولية. خطط المسار الدراسي الجامعي الكامل مسبقاً.",
-    edu_p2: "مؤهل لمسار التوصية وبدأ الدراسة المنهجية لبرنامج CFA قبل الموعد المحدد، يبني إطار المعرفة الأساسية في التمويل والقدرات المركبة متعددة التخصصات.",
+    edu_p1: "مسجل في برنامج 2026 الصيني-الأجنبي، يدرس مقررات لوجستية ثنائية اللغة. يتمتع بمزايا التطبيق اللغوي الأجنبي.",
+    edu_p2: "مؤهل لمسار التوصية وبدأ الدراسة المنهجية لبرنامج CFA قبل الموعد المحدد.",
     proj1_title: "مشروع الممارسة المستقلة للكتب المستعملة في الحرم الجامعي",
     proj1_role: "مبادرة طالب · تنفيذ كامل السلسلة",
-    proj1_p1: "أنجز بشكل مستقل العمليات الكاملة للكتب المستعملة في المدارس الثانوية والحرمات المحيطة: اختيار المنتجات، التنسيق مع الموردين، نقاط البيع الميدانية، التواصل مع العملاء. خدم أكثر من مئة معلم وطالب، وحقق كامل حجم المبيعات المخطط.",
-    proj1_p2: "استجاب بمرونة للاحتياجات المخصصة في التواصل مع العملاء، اكتسب خبرة في التعامل الميداني وقدرات على حل المشكلات بسرعة.",
+    proj1_p1: "أنجز بشكل مستقل العمليات الكاملة للكتب المستعملة. خدم أكثر من مئة معلم وطالب.",
+    proj1_p2: "استجاب بمرونة للاحتياجات المخصصة في التواصل مع العملاء، اكتسب خبرة في التعامل الميداني.",
     proj2_title: "الممارسة الصيفية بدوام كامل في وظائف متعددة",
     proj2_date: "فترات العطلة الصيفية لعدة سنوات أكاديمية",
     proj2_role: "تنفيذ ميداني · دوران الوظائف الأساسية",
-    proj2_p1: "شارك على المدى الطويل في وظائف صيفية بدوام كامل متنوعة خلال عطلتي الشتاء والصيف. تركز على التنفيذ الميداني، يتكيف مع إيقاع العمل، طور أسلوب عمل تنفيذي قوي لا يتجنب المسؤولية، ويتعلم المهام غير المألوفة بسرعة.",
+    proj2_p1: "شارك على المدى الطويل في وظائف صيفية بدوام كامل متنوعة. يتكيف مع إيقاع العمل، طور أسلوب عمل تنفيذي قوي.",
     skill1_cat: "الشهادات / تطبيقات الذكاء الاصطناعي",
-    skill1_desc: "حامل شهادة مدرب الذكاء الاصطناعي الرسمية من دامو أكاديمي. يتقن معالجة بيانات الذكاء الاصطناعي وتطبيقات الأدوات، قادر على استخدام الذكاء الاصطناعي لتحسين كفاءة العمل.",
+    skill1_desc: "حامل شهادة مدرب الذكاء الاصطناعي الرسمية من دامو أكاديمي. يتقن معالجة بيانات الذكاء الاصطناعي.",
     skill2_cat: "التواصل مع العملاء",
-    skill2_desc: "خبرة عملية في مواجهة الاحتياجات والتنسيق. جيد في استيعاب المطالب الأساسية بسرعة وإجراء تواصل ثنائي سلس.",
+    skill2_desc: "خبرة عملية في مواجهة الاحتياجات والتنسيق. جيد في استيعاب المطالب الأساسية بسرعة.",
     skill3_cat: "التطبيقات الأساسية",
-    skill3_desc: "يتقن مجموعة Office (Word، PowerPoint، Excel). لديه قدرات واضحة في تنظيم النصوص وتصنيف البيانات الأساسية.",
+    skill3_desc: "يتقن مجموعة Office (Word، PowerPoint، Excel). لديه قدرات واضحة في تنظيم النصوص.",
     interest1_cat: "📷 التصوير",
-    interest1_desc: "يحب توثيق الحياة وتفاصيل المشاهد يومياً. يتقن أساسيات التصوير والتعديل على الصور، يمكنه المساعدة في توثيق الفعاليات وتنظيم المواد.",
+    interest1_desc: "يحب توثيق الحياة وتفاصيل المشاهد يومياً. يتقن أساسيات التصوير والتعديل.",
     interest2_cat: "🎵 الموسيقى",
-    interest2_desc: "شغف طويل الأمد بالموسيقى مع إدراك جمالي جيد. يمكنه تنشيط جو الفريق والتكيف مع احتياجات الأنشطة الجماعية.",
+    interest2_desc: "شغف طويل الأمد بالموسيقى مع إدراك جمالي جيد. يمكنه تنشيط جو الفريق.",
     interest3_cat: "💪 اللياقة البدنية",
-    interest3_desc: "تمارين لياقة بدنية منتظمة. بنية قوية وإرادة قوية. يتكيف مع إيقاع الممارسات المكثفة وأنشطة التطوع.",
+    interest3_desc: "تمارين لياقة بدنية منتظمة. بنية قوية وإرادة قوية. يتكيف مع إيقاع الممارسات المكثفة.",
     gallery_tip: "انقر على أي صورة لتكبيرها",
     btn_download: "تحميل السيرة الذاتية الكاملة (PDF)",
     download_tip: "انقر على الزر لحفظ ملف PDF على جهازك",
@@ -323,45 +361,7 @@ var I18N = {
 };
 
 /* ===========================
-   Lightbox 放大弹窗
-   =========================== */
-(function () {
-  var box = document.getElementById('lightbox');
-  if (!box) return;
-  var bigImg = box.querySelector('.lb-img');
-  var closeBtn = box.querySelector('.lb-close');
-
-  function open(src) {
-    bigImg.src = src;
-    box.hidden = false;
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    box.hidden = true;
-    bigImg.src = '';
-    document.body.style.overflow = '';
-  }
-
-  var cert = document.querySelector('.cert-img');
-  if (cert) cert.addEventListener('click', function () { open(cert.src); });
-
-  document.addEventListener('click', function (e) {
-    if (e.target.classList && e.target.classList.contains('gallery-item')) {
-      open(e.target.src);
-    }
-  });
-
-  closeBtn.addEventListener('click', close);
-  box.addEventListener('click', function (e) {
-    if (e.target === box) close();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !box.hidden) close();
-  });
-})();
-
-/* ===========================
-   语言切换引擎
+   语言切换引擎 — 全局函数（供 onclick 调用）
    =========================== */
 (function () {
   var STORAGE_KEY = 'resume_lang';
@@ -369,9 +369,10 @@ var I18N = {
   var SUPPORTED = ['zh-CN', 'en', 'fr', 'ja', 'ru', 'ar'];
 
   function getLang() {
-    var saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
-    // 检测浏览器语言
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+    } catch(e) {}
     var nav = (navigator.language || '').toLowerCase();
     if (nav.indexOf('zh') === 0) return DEFAULT_LANG;
     if (nav.indexOf('en') === 0) return 'en';
@@ -385,34 +386,27 @@ var I18N = {
   function applyLang(lang) {
     var dict = I18N[lang] || I18N[DEFAULT_LANG];
 
-    // 文本替换
     document.querySelectorAll('[data-i18n-key]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-key');
       if (dict[key]) el.textContent = dict[key];
     });
 
-    // 属性替换（alt、aria-label 等）
     document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
       var mapping = el.getAttribute('data-i18n-attr');
       var parts = mapping.split('|');
-      var attrName = parts[0];
-      var key = parts[1];
-      if (dict[key]) el.setAttribute(attrName, dict[key]);
+      if (dict[parts[1]]) el.setAttribute(parts[0], dict[parts[1]]);
     });
 
-    // 语言选择器 UI 状态
     document.querySelectorAll('.lang-option').forEach(function (opt) {
-      opt.classList.toggle('is-active', opt.getAttribute('data-lang') === lang);
+      opt.classList.toggle('is-active', opt.getAttribute('onclick') && opt.getAttribute('onclick').indexOf("'" + lang + "'") !== -1);
     });
 
-    // RTL 阿拉伯语
     var isRTL = lang === 'ar';
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     document.body.classList.toggle('is-rtl', isRTL);
 
-    // localStorage
-    localStorage.setItem(STORAGE_KEY, lang);
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
   }
 
   function updateToggleLabel(lang) {
@@ -421,54 +415,53 @@ var I18N = {
     if (labelEl && dict.lang_label) labelEl.textContent = dict.lang_label;
   }
 
-  // 初始化
-  var currentLang = getLang();
-  applyLang(currentLang);
-  updateToggleLabel(currentLang);
+  // 暴露全局函数
+  window.toggleLangMenu = function () {
+    var menu = document.getElementById('langMenu');
+    var toggle = document.getElementById('langToggle');
+    if (menu.hasAttribute('hidden')) {
+      menu.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    } else {
+      menu.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  };
 
-  // 下拉菜单交互 — 直接绑定每个选项
-  var toggle = document.getElementById('langToggle');
-  var menu = document.getElementById('langMenu');
-
-  function openMenu() {
-    menu.removeAttribute('hidden');
-    toggle.setAttribute('aria-expanded', 'true');
-  }
-  function closeMenu() {
+  window.chooseLang = function (lang) {
+    applyLang(lang);
+    updateToggleLabel(lang);
+    var menu = document.getElementById('langMenu');
+    var toggle = document.getElementById('langToggle');
     menu.setAttribute('hidden', '');
     toggle.setAttribute('aria-expanded', 'false');
-  }
-
-  toggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (menu.hasAttribute('hidden')) { openMenu(); } else { closeMenu(); }
-  });
-
-  // 给每个选项直接绑定（不用事件委托）
-  var options = document.querySelectorAll('.lang-option');
-  options.forEach(function (opt) {
-    opt.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var lang = opt.getAttribute('data-lang');
-      applyLang(lang);
-      updateToggleLabel(lang);
-      closeMenu();
-    });
-  });
+  };
 
   // 点击外部关闭
   document.addEventListener('click', function (e) {
-    if (!menu.hasAttribute('hidden')) {
-      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-        closeMenu();
-      }
+    var menu = document.getElementById('langMenu');
+    var toggle = document.getElementById('langToggle');
+    if (!menu || menu.hasAttribute('hidden')) return;
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
     }
   });
 
   // Esc 关闭
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !menu.hasAttribute('hidden')) {
-      closeMenu();
+    if (e.key === 'Escape') {
+      var menu = document.getElementById('langMenu');
+      var toggle = document.getElementById('langToggle');
+      if (menu && !menu.hasAttribute('hidden')) {
+        menu.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     }
   });
+
+  // 初始化
+  var currentLang = getLang();
+  applyLang(currentLang);
+  updateToggleLabel(currentLang);
 })();
