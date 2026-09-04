@@ -9,7 +9,24 @@
 </head>
 <body>
 
-  <!-- Lightbox 弹窗（全局唯一） -->
+  <!-- 语言选择器 -->
+  <nav class="lang-bar" aria-label="语言切换">
+    <button class="lang-btn" id="langToggle" aria-haspopup="true" aria-expanded="false">
+      <span class="lang-btn-icon">🌐</span>
+      <span class="lang-btn-label" data-i18n-key="lang_label">中文</span>
+      <span class="lang-btn-caret">▾</span>
+    </button>
+    <ul class="lang-menu" id="langMenu" role="listbox" hidden>
+      <li role="option" data-lang="zh-CN" class="lang-option is-active">🇨🇳 中文</li>
+      <li role="option" data-lang="en">🇬🇧 English</li>
+      <li role="option" data-lang="fr">🇫🇷 Français</li>
+      <li role="option" data-lang="ja">🇯🇵 日本語</li>
+      <li role="option" data-lang="ru">🇷🇺 Русский</li>
+      <li role="option" data-lang="ar">🇸🇦 العربية</li>
+    </ul>
+  </nav>
+
+  <!-- Lightbox 弹窗 -->
   <div class="lightbox" id="lightbox" hidden>
     <button class="lb-close" aria-label="关闭">×</button>
     <img class="lb-img" alt="放大预览" />
@@ -23,101 +40,101 @@
         <img class="hero-avatar" src="img02.jpg" alt="李胜飞 头像" />
         <div class="hero-text">
           <h1 class="hero-name">李胜飞</h1>
-          <p class="hero-title">2026级准大一新生 · 物流管理（中外合作办学）</p>
-          <p class="hero-tag">四川外国语大学 · 共青团员 · CFA 提前修习</p>
+          <p class="hero-title" data-i18n-key="hero_title">2026级准大一新生 · 物流管理（中外合作办学）</p>
+          <p class="hero-tag" data-i18n-key="hero_tag">四川外国语大学 · 共青团员 · CFA 提前修习</p>
         </div>
       </div>
     </header>
 
     <!-- 基本信息 -->
     <section id="basic" class="section">
-      <h2 class="section-title"><span class="section-no">01</span>基本信息</h2>
+      <h2 class="section-title"><span class="section-no">01</span><span data-i18n-key="section_basic">基本信息</span></h2>
       <div class="grid-basic">
         <div class="info-item">
-          <span class="info-label">姓名</span>
+          <span class="info-label" data-i18n-key="label_name">姓名</span>
           <span class="info-value">李胜飞</span>
         </div>
         <div class="info-item">
-          <span class="info-label">年龄</span>
+          <span class="info-label" data-i18n-key="label_age">年龄</span>
           <span class="info-value">19</span>
         </div>
         <div class="info-item">
-          <span class="info-label">身份</span>
-          <span class="info-value">2026级准大一新生</span>
+          <span class="info-label" data-i18n-key="label_identity">身份</span>
+          <span class="info-value" data-i18n-key="value_identity">2026级准大一新生</span>
         </div>
         <div class="info-item">
-          <span class="info-label">政治面貌</span>
-          <span class="info-value">共青团员</span>
+          <span class="info-label" data-i18n-key="label_political">政治面貌</span>
+          <span class="info-value" data-i18n-key="value_political">共青团员</span>
         </div>
         <div class="info-item info-item--full">
-          <span class="info-label">就读院校专业</span>
-          <span class="info-value">四川外国语大学 · 物流管理专业（中外合作办学）</span>
+          <span class="info-label" data-i18n-key="label_school">就读院校专业</span>
+          <span class="info-value" data-i18n-key="value_school">四川外国语大学 · 物流管理专业（中外合作办学）</span>
         </div>
       </div>
     </section>
 
     <!-- 教育经历 -->
     <section id="education" class="section">
-      <h2 class="section-title"><span class="section-no">02</span>教育经历</h2>
+      <h2 class="section-title"><span class="section-no">02</span><span data-i18n-key="section_education">教育经历</span></h2>
       <div class="entry">
         <div class="entry-head">
-          <h3 class="entry-title">四川外国语大学 · 物流管理专业（中外合作办学）</h3>
-          <span class="entry-date">2026.09 — 2030.06（在读）</span>
+          <h3 class="entry-title" data-i18n-key="edu_title">四川外国语大学 · 物流管理专业（中外合作办学）</h3>
+          <span class="entry-date">2026.09 — 2030.06（<span data-i18n-key="edu_in_progress">在读</span>）</span>
         </div>
         <ul class="entry-list">
-          <li>2026级中外合作办学方向在读，同步修习中外双语物流课程，具备外语应用优势与国际物流视野，提前规划大学全周期学习路径。</li>
-          <li>已通过推免通道提前参与 CFA 项目系统学习，搭建金融基础知识框架，构建跨领域复合能力基础。</li>
+          <li data-i18n-key="edu_p1">2026级中外合作办学方向在读，同步修习中外双语物流课程，具备外语应用优势与国际物流视野，提前规划大学全周期学习路径。</li>
+          <li data-i18n-key="edu_p2">已通过推免通道提前参与 CFA 项目系统学习，搭建金融基础知识框架，构建跨领域复合能力基础。</li>
         </ul>
       </div>
     </section>
 
     <!-- 项目经验 -->
     <section id="projects" class="section">
-      <h2 class="section-title"><span class="section-no">03</span>项目经验</h2>
+      <h2 class="section-title"><span class="section-no">03</span><span data-i18n-key="section_projects">项目经验</span></h2>
 
       <div class="entry">
         <div class="entry-head">
-          <h3 class="entry-title">校园二手图书自主实践项目</h3>
+          <h3 class="entry-title" data-i18n-key="proj1_title">校园二手图书自主实践项目</h3>
           <span class="entry-date">2025.06 — 2025.08</span>
         </div>
-        <p class="entry-role">学生自主发起 · 全链路独立执行</p>
+        <p class="entry-role" data-i18n-key="proj1_role">学生自主发起 · 全链路独立执行</p>
         <ul class="entry-list">
-          <li>独立完成高中及周边校园二手图书全链路运营：选品、货源对接、线下点位、客户沟通，服务师生百余人，完成全部计划销量。</li>
-          <li>在客户沟通中灵活响应个性化需求，积累一线对接经验与问题快速解决能力。</li>
+          <li data-i18n-key="proj1_p1">独立完成高中及周边校园二手图书全链路运营：选品、货源对接、线下点位、客户沟通，服务师生百余人，完成全部计划销量。</li>
+          <li data-i18n-key="proj1_p2">在客户沟通中灵活响应个性化需求，积累一线对接经验与问题快速解决能力。</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-head">
-          <h3 class="entry-title">多岗位暑期全职实践</h3>
-          <span class="entry-date">多个学年暑假期间</span>
+          <h3 class="entry-title" data-i18n-key="proj2_title">多岗位暑期全职实践</h3>
+          <span class="entry-date" data-i18n-key="proj2_date">多个学年暑假期间</span>
         </div>
-        <p class="entry-role">一线实操 · 基层岗位轮岗</p>
+        <p class="entry-role" data-i18n-key="proj2_role">一线实操 · 基层岗位轮岗</p>
         <ul class="entry-list">
-          <li>长期利用寒暑假参与不同类型全职暑期工，深耕一线执行，适应职场节奏，练就不推诿、强执行力的工作风格，能快速上手陌生任务。</li>
+          <li data-i18n-key="proj2_p1">长期利用寒暑假参与不同类型全职暑期工，深耕一线执行，适应职场节奏，练就不推诿、强执行力的工作风格，能快速上手陌生任务。</li>
         </ul>
       </div>
     </section>
 
     <!-- 技能栈 -->
     <section id="skills" class="section">
-      <h2 class="section-title"><span class="section-no">04</span>技能栈</h2>
+      <h2 class="section-title"><span class="section-no">04</span><span data-i18n-key="section_skills">技能栈</span></h2>
       <div class="skills">
 
         <div class="skill-group skill-group--cert">
-          <h3 class="skill-cat">证书 / AI 应用</h3>
-          <p class="skill-desc">持有阿里巴巴达摩院 AI 训练师官方证书，掌握 AI 数据处理与工具落地应用，能借助 AI 提升工作效率。</p>
-          <img class="cert-img" src="certificate.jpg" alt="AI 训练师官方证书（点击放大）" />
+          <h3 class="skill-cat" data-i18n-key="skill1_cat">证书 / AI 应用</h3>
+          <p class="skill-desc" data-i18n-key="skill1_desc">持有阿里巴巴达摩院 AI 训练师官方证书，掌握 AI 数据处理与工具落地应用，能借助 AI 提升工作效率。</p>
+          <img class="cert-img" src="certificate.jpg" data-i18n-attr="alt|alt_cert" />
         </div>
 
         <div class="skill-group">
-          <h3 class="skill-cat">客户沟通</h3>
-          <p class="skill-desc">拥有直面需求、对接协调的实际经验，擅长快速捕捉对方核心诉求，完成顺畅的双向沟通。</p>
+          <h3 class="skill-cat" data-i18n-key="skill2_cat">客户沟通</h3>
+          <p class="skill-desc" data-i18n-key="skill2_desc">拥有直面需求、对接协调的实际经验，擅长快速捕捉对方核心诉求，完成顺畅的双向沟通。</p>
         </div>
 
         <div class="skill-group">
-          <h3 class="skill-cat">基础应用</h3>
-          <p class="skill-desc">熟练使用 Office 办公三件套，具备清晰的文字整理与数据基础梳理能力。</p>
+          <h3 class="skill-cat" data-i18n-key="skill3_cat">基础应用</h3>
+          <p class="skill-desc" data-i18n-key="skill3_desc">熟练使用 Office 办公三件套，具备清晰的文字整理与数据基础梳理能力。</p>
         </div>
 
       </div>
@@ -125,61 +142,61 @@
 
     <!-- 兴趣特长 -->
     <section id="interests" class="section">
-      <h2 class="section-title"><span class="section-no">05</span>兴趣特长</h2>
+      <h2 class="section-title"><span class="section-no">05</span><span data-i18n-key="section_interests">兴趣特长</span></h2>
       <div class="skills">
         <div class="skill-group">
-          <h3 class="skill-cat">📷 摄影</h3>
-          <p class="skill-desc">日常热爱记录生活与场景细节，掌握基础拍摄与修图技巧，可协助活动记录与素材整理。</p>
+          <h3 class="skill-cat" data-i18n-key="interest1_cat">📷 摄影</h3>
+          <p class="skill-desc" data-i18n-key="interest1_desc">日常热爱记录生活与场景细节，掌握基础拍摄与修图技巧，可协助活动记录与素材整理。</p>
         </div>
         <div class="skill-group">
-          <h3 class="skill-cat">🎵 音乐</h3>
-          <p class="skill-desc">长期热爱音乐，具备良好审美感知力，能活跃团队氛围，适配集体活动配合需求。</p>
+          <h3 class="skill-cat" data-i18n-key="interest2_cat">🎵 音乐</h3>
+          <p class="skill-desc" data-i18n-key="interest2_desc">长期热爱音乐，具备良好审美感知力，能活跃团队氛围，适配集体活动配合需求。</p>
         </div>
         <div class="skill-group">
-          <h3 class="skill-cat">💪 健身</h3>
-          <p class="skill-desc">长期规律健身，拥有强健体魄与不服输的意志力，能适配高强度实践与志愿活动节奏。</p>
+          <h3 class="skill-cat" data-i18n-key="interest3_cat">💪 健身</h3>
+          <p class="skill-desc" data-i18n-key="interest3_desc">长期规律健身，拥有强健体魄与不服输的意志力，能适配高强度实践与志愿活动节奏。</p>
         </div>
       </div>
     </section>
 
     <!-- 个人相册 -->
     <section id="gallery" class="section">
-      <h2 class="section-title"><span class="section-no">06</span>个人相册</h2>
-      <p class="gallery-tip">点击图片可放大查看</p>
+      <h2 class="section-title"><span class="section-no">06</span><span data-i18n-key="section_gallery">个人相册</span></h2>
+      <p class="gallery-tip" data-i18n-key="gallery_tip">点击图片可放大查看</p>
       <div class="gallery-grid">
-        <img class="gallery-item" src="img01.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img03.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img04.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img05.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img06.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img07.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img08.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img09.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img10.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img11.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img12.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img13.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img14.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img16.jpg" alt="摄影作品" />
-        <img class="gallery-item" src="img17.jpg" alt="摄影作品" />
+        <img class="gallery-item" src="img01.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img03.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img04.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img05.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img06.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img07.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img08.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img09.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img10.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img11.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img12.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img13.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img14.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img16.jpg" data-i18n-attr="alt|alt_gallery" />
+        <img class="gallery-item" src="img17.jpg" data-i18n-attr="alt|alt_gallery" />
       </div>
     </section>
 
     <!-- 联系方式 -->
     <section id="contact" class="section">
-      <h2 class="section-title"><span class="section-no">07</span>联系方式</h2>
+      <h2 class="section-title"><span class="section-no">07</span><span data-i18n-key="section_contact">联系方式</span></h2>
       <div class="grid-basic">
         <div class="info-item">
-          <span class="info-label">联系电话</span>
+          <span class="info-label" data-i18n-key="label_phone">联系电话</span>
           <span class="info-value">18532075677</span>
         </div>
         <div class="info-item">
-          <span class="info-label">电子邮箱</span>
+          <span class="info-label" data-i18n-key="label_email">电子邮箱</span>
           <span class="info-value">3859219414@qq.com</span>
         </div>
         <div class="info-item info-item--full">
-          <span class="info-label">就读院校</span>
-          <span class="info-value">四川外国语大学 · 物流管理专业（中外合作办学）</span>
+          <span class="info-label" data-i18n-key="label_school2">就读院校</span>
+          <span class="info-value" data-i18n-key="value_school2">四川外国语大学 · 物流管理专业（中外合作办学）</span>
         </div>
       </div>
     </section>
@@ -188,52 +205,13 @@
     <footer class="download-area">
       <a class="btn-download" href="2026级物流管理新生简历.pdf" download="2026级物流管理新生简历.pdf">
         <span class="btn-icon" aria-hidden="true">↓</span>
-        下载 PDF 完整简历
+        <span data-i18n-key="btn_download">下载 PDF 完整简历</span>
       </a>
-      <p class="download-tip">点击按钮即可保存 PDF 文件到本地</p>
+      <p class="download-tip" data-i18n-key="download_tip">点击按钮即可保存 PDF 文件到本地</p>
     </footer>
 
   </main>
 
-  <!-- Lightbox 放大脚本 -->
-  <script>
-    (function () {
-      var box = document.getElementById('lightbox');
-      var bigImg = box.querySelector('.lb-img');
-      var closeBtn = box.querySelector('.lb-close');
-
-      function open(src) {
-        bigImg.src = src;
-        box.hidden = false;
-        document.body.style.overflow = 'hidden';
-      }
-      function close() {
-        box.hidden = true;
-        bigImg.src = '';
-        document.body.style.overflow = '';
-      }
-
-      // 证书图点击放大
-      var cert = document.querySelector('.cert-img');
-      if (cert) cert.addEventListener('click', function () { open(cert.src); });
-
-      // 相册点击放大（事件委托，支持后续新增）
-      document.addEventListener('click', function (e) {
-        if (e.target.classList && e.target.classList.contains('gallery-item')) {
-          open(e.target.src);
-        }
-      });
-
-      // 关闭方式：点遮罩、点 ×、按 Esc
-      closeBtn.addEventListener('click', close);
-      box.addEventListener('click', function (e) {
-        if (e.target === box) close();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !box.hidden) close();
-      });
-    })();
-  </script>
-
+  <script src="translations.js"></script>
 </body>
 </html>
