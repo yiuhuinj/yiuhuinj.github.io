@@ -392,7 +392,7 @@ body {
 }
 
 /* ============================================================
-   手风琴交互 — grid-template-rows 方案
+   手风琴交互 — max-height 方案（精确控制）
    ============================================================ */
 .accordion-header {
   cursor: pointer;
@@ -415,15 +415,13 @@ body {
   transform: translateY(-50%) rotate(180deg);
 }
 .accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s ease;
-}
-.accordion-content > * {
   overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 .accordion-section.is-open .accordion-content {
-  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 /* ============================================================
@@ -864,7 +862,7 @@ body.is-rtl .gallery-tip { text-align: right; }
   .dp-title, .dp-desc, .dp-date { color: var(--text-primary) !important; }
   .dp-number { -webkit-text-stroke-color: var(--text-primary); }
   a { color: var(--text-primary); text-decoration: none; }
-  .accordion-content { grid-template-rows: 1fr !important; }
+  .accordion-content { max-height: none !important; opacity: 1 !important; }
   .accordion-icon { display: none; }
   .section-note { border-left-color: #ccc; }
 }
