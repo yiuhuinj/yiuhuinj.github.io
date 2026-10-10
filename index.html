@@ -327,18 +327,12 @@
   <script>
   /* 手风琴展开/收起 */
   function toggleAccordion(header) {
-    var section = header.parentElement;
-    var content = section.querySelector('.accordion-content');
-    var icon = header.querySelector('.accordion-icon');
+    var section = header.closest('.accordion-section');
     var isOpen = section.classList.contains('is-open');
     if (isOpen) {
       section.classList.remove('is-open');
-      content.style.maxHeight = '0';
-      icon.style.transform = 'rotate(0deg)';
     } else {
       section.classList.add('is-open');
-      content.style.maxHeight = content.scrollHeight + 'px';
-      icon.style.transform = 'rotate(180deg)';
     }
   }
 
@@ -359,18 +353,6 @@
     }, { threshold: 0.12 });
     els.forEach(function (el) { io.observe(el); });
   })();
-
-  /* 初始化：默认展开所有手风琴 */
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.accordion-section').forEach(function(section) {
-      var header = section.querySelector('.accordion-header');
-      var content = section.querySelector('.accordion-content');
-      var icon = section.querySelector('.accordion-icon');
-      section.classList.add('is-open');
-      content.style.maxHeight = content.scrollHeight + 'px';
-      icon.style.transform = 'rotate(180deg)';
-    });
-  });
   </script>
 </body>
 </html>
