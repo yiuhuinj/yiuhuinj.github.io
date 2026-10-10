@@ -10,12 +10,20 @@
   --text-tertiary: #999999;
   --accent-color: #ea580c;
   --accent-hover: #c2410c;
+  --accent-gradient: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
   --border-color: #eeeeee;
   --radius-md: 12px;
   --radius-lg: 20px;
   --transition: all 0.3s ease;
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
   --max-w: 900px;
+  /* 新增活力配色 */
+  --vitality-blue: #0ea5e9;
+  --vitality-green: #22c55e;
+  --vitality-purple: #a855f7;
+  --vitality-pink: #ec4899;
+  --vitality-yellow: #eab308;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -285,7 +293,168 @@ body {
 .row-value--long { font-size: 1.05rem; max-width: 65%; }
 
 /* ============================================================
-   教育经历卡
+   求学之路卡
+   ============================================================ */
+.journey-card {
+  background: var(--bg-muted);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.journey-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+.journey-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin-bottom: 1rem;
+}
+.journey-title { font-size: 1.25rem; font-weight: 900; color: var(--text-primary); }
+.journey-date {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* 年级长标签 */
+.journey-leader {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.journey-leader::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+.leader-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: var(--accent-color);
+  border-radius: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.leader-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.leader-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.journey-list { list-style: none; }
+.journey-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.journey-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+/* ============================================================
+   手风琴交互
+   ============================================================ */
+.accordion-header {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: 40px;
+}
+.accordion-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  fill: var(--text-tertiary);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+/* ============================================================
+   注语（层次感 + 大学生活力）
+   ============================================================ */
+.section-note {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-top: 0.8rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-color);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   结尾标语
+   ============================================================ */
+.motto-section {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  margin-top: 2rem;
+}
+.motto-text {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.motto-en {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   区块通用：标签 + 大标题
    ============================================================ */
 .edu-card {
   background: var(--bg-muted);
@@ -632,6 +801,12 @@ body {
   .lang-menu { min-width: 160px; }
 }
 
+body.is-rtl .accordion-header { padding-right: 0; padding-left: 40px; }
+body.is-rtl .accordion-icon { right: auto; left: 0; }
+body.is-rtl .section-note { padding-left: 0; padding-right: 1rem; border-left: none; border-right: 3px solid var(--accent-color); text-align: right; }
+body.is-rtl .motto-text { text-align: center; }
+body.is-rtl .motto-en { text-align: center; }
+
 /* ============================================================
    RTL 阿拉伯语镜像
    ============================================================ */
@@ -680,4 +855,7 @@ body.is-rtl .gallery-tip { text-align: right; }
   .dp-title, .dp-desc, .dp-date { color: var(--text-primary) !important; }
   .dp-number { -webkit-text-stroke-color: var(--text-primary); }
   a { color: var(--text-primary); text-decoration: none; }
+  .accordion-content { max-height: none !important; }
+  .accordion-icon { display: none; }
+  .section-note { border-left-color: #ccc; }
 }
