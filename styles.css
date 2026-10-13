@@ -204,6 +204,35 @@ body {
   text-transform: uppercase;
 }
 
+/* Hero 下载简历按钮 */
+.hero-actions { margin-top: 24px; }
+.btn-hero-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: var(--text-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.btn-hero-download:hover,
+.btn-hero-download:focus {
+  background: var(--accent-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.btn-dl-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* Hero 进场动画 */
 .hero-anim-item {
   opacity: 0;
@@ -406,6 +435,7 @@ body {
   height: 2px;
   background: var(--accent-color);
 }
+.journey-list li strong { color: var(--text-primary); font-weight: 700; }
 
 /* ============================================================
    手风琴交互 — max-height 方案（精确控制）
@@ -955,7 +985,7 @@ body.is-rtl .gallery-tip { text-align: right; }
 @media print {
   body { background: #ffffff; font-size: 12pt; }
   .container { max-width: 100%; padding: 0; }
-  .download-area, .lang-bar { display: none; }
+  .download-area, .lang-bar, .hero-actions { display: none; }
   .cert-img, .gallery-grid { display: none; }
   .fade-in-up, .hero-anim-item { opacity: 1 !important; transform: none !important; }
   .dark-portfolio-container { background: #ffffff; box-shadow: none; border: 1px solid var(--border-color); }
