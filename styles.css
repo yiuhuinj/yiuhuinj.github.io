@@ -647,6 +647,11 @@ body {
   transition: color 0.4s ease;
 }
 .dp-desc + .dp-desc { margin-top: 4px; }
+.dp-desc strong {
+  color: #d4d4d4;
+  font-weight: 700;
+}
+.dp-item:hover .dp-desc strong { color: #1a1a1a; }
 .dp-date {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color: #a3a3a3;
