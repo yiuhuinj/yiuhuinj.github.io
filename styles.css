@@ -348,6 +348,20 @@ body {
   position: relative;
   overflow: hidden;
 }
+/* 校园背景图层（低透明度，不干扰阅读） */
+.journey-card::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('journey-bg.jpg') center / cover no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.journey-card > * { position: relative; z-index: 1; }
 .journey-card::before {
   content: "";
   position: absolute;
