@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>镇海关 · 多智能体合规风控系统 | 李胜飞</title>
+  <meta name="description" content="镇海关：六智能体跨境合规风控系统——全链路溯源、毫秒级本地检测、诚实边界机制，全部指标实测可复现。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307111E'/%3E%3Cpath d='M32 8 52 16v14c0 12-8.5 21.5-20 26C20.5 51.5 12 42 12 30V16z' fill='none' stroke='%2322d3ee' stroke-width='4'/%3E%3Ccircle cx='32' cy='30' r='7' fill='%23ff2e88'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Orbitron:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .zh-hero { min-height: 46vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 96px 24px 40px; position: relative; }
+    .zh-kicker { font-family: 'Space Mono', monospace; color: #22d3ee; letter-spacing: 3px; font-size: 13px; margin-bottom: 14px; }
+    .zh-title { font-family: 'Ma Shan Zheng', cursive; font-size: clamp(44px, 9vw, 88px); color: #fff; text-shadow: 0 0 26px rgba(34, 211, 238, .45); }
+    .zh-sub { font-family: 'Orbitron', sans-serif; color: #9a9ab0; letter-spacing: 2px; font-size: 13px; margin-top: 10px; }
+    .zh-section { max-width: 920px; margin: 0 auto; padding: 34px 24px; }
+    .zh-h2 { font-family: 'Orbitron', sans-serif; color: #fff; font-size: 20px; letter-spacing: 2px; margin: 0 0 14px; border-left: 3px solid #22d3ee; padding-left: 12px; }
+    .zh-p { color: #c9c9d9; line-height: 1.9; font-size: 15px; margin: 0 0 14px; }
+    .zh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0; }
+    .zh-card { background: rgba(255,255,255,.04); border: 1px solid rgba(34,211,238,.25); border-radius: 10px; padding: 16px 18px; }
+    .zh-card h3 { font-family: 'Space Mono', monospace; color: #22d3ee; font-size: 14px; margin: 0 0 8px; letter-spacing: 1px; }
+    .zh-card p { color: #b9b9cc; font-size: 13px; line-height: 1.75; margin: 0; }
+    .zh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 18px 0; }
+    .zh-stat { text-align: center; background: rgba(255,46,136,.06); border: 1px solid rgba(255,46,136,.3); border-radius: 10px; padding: 14px 8px; }
+    .zh-stat b { display: block; font-family: 'Orbitron', sans-serif; color: #ff2e88; font-size: 22px; margin-bottom: 4px; }
+    .zh-stat span { color: #9a9ab0; font-size: 12px; }
+    .zh-case { background: rgba(34,211,238,.05); border: 1px dashed rgba(34,211,238,.4); border-radius: 10px; padding: 18px 20px; margin: 18px 0; }
+    .zh-case b { color: #22d3ee; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 1px; }
+    .zh-back { text-align: center; padding: 30px 20px 70px; }
+  </style>
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="zh-hero">
+    <p class="zh-kicker">PROJECT · MULTI-AGENT · TRACEABLE AI</p>
+    <h1 class="zh-title">镇海关</h1>
+    <p class="zh-sub">六智能体跨境合规风控系统 · ZHENHAIGUAN COMPLIANCE AGENTS</p>
+  </header>
+
+  <main>
+    <section class="zh-section">
+      <h2 class="zh-h2">定位 / WHAT</h2>
+      <p class="zh-p">面向跨境电商中小卖家的多智能体合规风控系统（四川外国语大学首届智能体创新应用大赛参赛作品）。把"商品能不能出海卖"的合规判定前移到上架前第一公里：上架前自检、在售监测、风险预警、周期报告四步闭环。核心设计一句话——<strong style="color:#22d3ee">大模型只当翻译和调度，绝不当法官</strong>：事实与结论全部来自确定性工具返回，每条结论强制携带法条编号与官方链接，从架构上消除 AI 幻觉。</p>
+    </section>
+
+    <section class="zh-section">
+      <h2 class="zh-h2">六个智能体 / THE CREW</h2>
+      <div class="zh-grid">
+        <div class="zh-card"><h3>罗盘芯 · 调度中枢</h3><p>零工具绑定，仅分派意图——机制性防越权，意图不明先追问。</p></div>
+        <div class="zh-card"><h3>规答 · 知识问答</h3><p>只依据本地知识库作答，每答附条款原文与官方链接，未命中如实告知。</p></div>
+        <div class="zh-card"><h3>规审 · 商品审查</h3><p>禁限售/认证/标签/广告四类检查，每条违规带整改建议与法规依据。</p></div>
+        <div class="zh-card"><h3>规探 · 法规监测</h3><p>采集 CPSC / EUR-Lex / Safety Gate 官方动态，自动扫描存量商品波及面。</p></div>
+        <div class="zh-card"><h3>规警 · 风险预警</h3><p>红橙黄分级推送预警卡，推送后回写台账，幂等防重复打扰。</p></div>
+        <div class="zh-card"><h3>规述 · 报告成稿</h3><p>周报与单品报告自动成稿，统计数字 100% 取自工具返回并自校验。</p></div>
+      </div>
+      <p class="zh-p">六个智能体运行于千问办公平台，通过五个本地 MCP 服务（8301-8305）连接数据资产层：365 条法规知识切片、539 个条款知识单元、48 条 100% 绑定法条依据的检测规则。</p>
+    </section>
+
+    <section class="zh-section">
+      <h2 class="zh-h2">实测指标 / PROOF</h2>
+      <div class="zh-stats">
+        <div class="zh-stat"><b>100%</b><span>溯源率 / 拒答率<br />条款引用准确率</span></div>
+        <div class="zh-stat"><b>8-15ms</b><span>检测引擎热态耗时<br />（含语义匹配+落库）</span></div>
+        <div class="zh-stat"><b>7/7</b><span>平台端到端真实对话<br />六智能体全链验证</span></div>
+        <div class="zh-stat"><b>32/32</b><span>监测服务验收用例<br />全部通过</span></div>
+      </div>
+      <p class="zh-p">磁力球标准判例与美国 CPSC 真实召回（Recall-24-267）一致；完成安全伦理自查 15 项分级整改，独创 not_covered 空白区显式改判与 manual_review 中置信人工复核标记——把 AI 的不确定性如实暴露。</p>
+    </section>
+
+    <section class="zh-section">
+      <h2 class="zh-h2">真实案例 / STORY</h2>
+      <div class="zh-case">
+        <b>八斗柜误报自纠错事件</b>
+        <p class="zh-p" style="margin-top:10px">系统运行中，规警侧复核环节发现规探采集端把儿童家具召回误归玩具品类，产生 116 条关联误预警。系统独立完成"发现异常 → 定位根因（品类映射宽泛词）→ 修复映射 → 清理 118 条误记录 → 六用例回归 → 平台复测零复发"全闭环——多智能体交叉复核捕获了单一模块无法发现的缺陷，是"可信 AI"最硬的背书。</p>
+      </div>
+    </section>
+
+    <div class="zh-back">
+      <a class="hero-cta" href="index.html">← 返回我的宇宙</a>
+    </div>
+  </main>
+
+  <footer class="footer" style="position:relative; z-index:1;">
+    <span>© 2026 李胜飞 · ZHENHAIGUAN AGENTS</span>
+    <a href="index.html">返回首页 →</a>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

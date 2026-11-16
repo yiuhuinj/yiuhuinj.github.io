@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>月老 · 打开指引</title>
+<meta name="description" content="月老公益婚恋交友平台访问指引：微信内请点击右上角在浏览器打开" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #e8607f; --primary-dark: #d14a69; --primary-deep: #a52f4c;
+  --sky: #7fc4d4; --sky-deep: #4a9db1;
+  --paper: #fdf5f3; --card: #fffdfc;
+  --ink: #4a403e; --muted: #ab9d99; --line: #f3e2df;
+}
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(160deg, #fbe9ec, #dff0f4);
+  color: var(--ink); display: flex; flex-direction: column;
+  min-height: 100dvh; -webkit-font-smoothing: antialiased;
+}
+/* ---------- 外部浏览器：轻提示后跳转 ---------- */
+.jump { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; }
+.jump .heart { width: 66px; height: 66px; border-radius: 22px; background: linear-gradient(140deg, var(--primary), var(--primary-deep)); display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(210,120,140,.35); animation: floatY 2.8s ease-in-out infinite; }
+.jump .heart svg { width: 36px; height: 36px; }
+@keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.jump h1 { font-size: 22px; letter-spacing: 2px; }
+.jump p { font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+.jump .dots { display: inline-flex; gap: 5px; }
+.jump .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); animation: blink 1.2s infinite; }
+.jump .dots i:nth-child(2) { animation-delay: .2s; } .jump .dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%,80%,100% { opacity: .25; } 40% { opacity: 1; } }
+.jump .manual { font-size: 12.5px; }
+.jump .manual a { color: var(--sky-deep); text-decoration: none; border-bottom: 1px dashed var(--sky-deep); padding-bottom: 1px; }
+
+/* ---------- 微信内：引导层 ---------- */
+.wx-guide { display: none; flex-direction: column; min-height: 100dvh; background: rgba(74,64,62,.86); position: fixed; inset: 0; z-index: 10; backdrop-filter: blur(6px); }
+.wx-guide.show { display: flex; }
+.wx-arrow { align-self: flex-end; padding: 54px 26px 0 0; animation: floatY 1.6s ease-in-out infinite; }
+.wx-arrow svg { width: 74px; height: auto; }
+.wx-tip { margin-top: 10px; padding: 0 30px; text-align: center; color: #fff; }
+.wx-tip .bubble { display: inline-block; background: #fff; color: var(--ink); border-radius: 14px; padding: 12px 18px; font-size: 14.5px; line-height: 1.7; box-shadow: 0 10px 30px rgba(0,0,0,.25); position: relative; }
+.wx-tip .bubble::before { content: ''; position: absolute; top: -8px; right: 22px; border: 8px solid transparent; border-bottom-color: #fff; border-right-width: 4px; border-left-width: 4px; }
+.wx-tip .bubble b { color: var(--primary-deep); }
+.wx-tip .sub { margin-top: 14px; font-size: 12.5px; color: rgba(255,255,255,.85); letter-spacing: 1px; }
+.wx-copy { margin: 22px auto 0; display: flex; flex-direction: column; gap: 10px; width: min(84%, 320px); }
+.wx-copy button {
+  border: none; border-radius: 999px; padding: 13px; font-size: 14.5px; font-weight: 600;
+  letter-spacing: 1px; min-height: 48px; font-family: inherit;
+}
+.wx-copy .copy { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 10px 24px rgba(232,96,127,.4); }
+.wx-copy .copy:active { transform: scale(.97); }
+.wx-copy .url {
+  background: transparent; color: rgba(255,255,255,.9); font-size: 12px; line-height: 1.6;
+  padding: 8px 14px; word-break: break-all; border: 1px dashed rgba(255,255,255,.35); border-radius: 12px;
+  text-align: center; user-select: all; -webkit-user-select: all;
+}
+.wx-foot { margin-top: auto; padding: 18px; text-align: center; color: rgba(255,255,255,.6); font-size: 11.5px; letter-spacing: 1px; }
+.wx-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; }
+.wx-brand .mini-heart { width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(140deg, var(--primary), var(--primary-deep)); display: flex; align-items: center; justify-content: center; }
+.wx-brand .mini-heart svg { width: 18px; height: 18px; }
+.wx-brand span { color: #fff; font-size: 15px; letter-spacing: 4px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- 外部浏览器视图：自动跳转 -->
+<main class="jump" id="jumpView">
+  <div class="heart">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg>
+  </div>
+  <h1>月老 · 公益婚恋交友平台</h1>
+  <p>正在为你打开<span class="dots"><i></i><i></i><i></i></span></p>
+  <p class="manual">若没有自动跳转，<a href="https://s0q64ctflurf9rhdbck9q.apigateway-cn-beijing.volceapi.com/">点这里手动进入</a></p>
+</main>
+
+<!-- 微信内：引导打开浏览器 -->
+<div class="wx-guide" id="wxGuide" aria-hidden="true">
+  <div class="wx-arrow" aria-hidden="true">
+    <svg viewBox="0 0 74 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M62 6 L18 6 C12 6 8 10 8 16 L8 78 C8 84 12 88 18 88 L56 88 C62 88 66 84 66 78 L66 30 Z" fill="#fff" opacity=".96"/>
+      <circle cx="37" cy="60" r="10" fill="none" stroke="#a52f4c" stroke-width="3.4"/>
+      <path d="M37 55.5 V61 l4 3" stroke="#a52f4c" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M28 14 h18" stroke="#ab9d99" stroke-width="3" stroke-linecap="round"/>
+      <path d="M6 52 L-6 40 M8 40 L-4 28" stroke="#fff" stroke-width="0" fill="none"/>
+      <path d="M64 2 C70 10 72 18 71 27" stroke="#e8607f" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <path d="M71 27 l-8.5 -1.5 M71 27 l1 -8.5" stroke="#e8607f" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="wx-tip">
+    <div class="bubble">
+      点击右上角 <b>「···」</b><br/>
+      选择 <b>「在浏览器打开」</b>
+    </div>
+    <p class="sub">微信暂不支持直接访问本站 · 在浏览器中即可正常体验</p>
+  </div>
+  <div class="wx-copy">
+    <button class="copy" id="copyBtn" type="button">复制链接，稍后在浏览器粘贴打开</button>
+    <p class="url" id="urlText">https://s0q64ctflurf9rhdbck9q.apigateway-cn-beijing.volceapi.com/</p>
+  </div>
+  <div class="wx-brand">
+    <span class="mini-heart"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg></span>
+    <span>月老 · 一线牵良缘</span>
+  </div>
+  <div class="wx-foot">公益平台 · 全部功能免费 · 无广告</div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var APP_URL = 'https://s0q64ctflurf9rhdbck9q.apigateway-cn-beijing.volceapi.com/';
+  var ua = navigator.userAgent || '';
+  // ?test=wechat 用于预览微信引导视图（生产无副作用）
+  var isWechat = /MicroMessenger/i.test(ua) || /test=wechat/i.test(location.search);
+
+  if (isWechat) {
+    document.getElementById('jumpView').style.display = 'none';
+    var guide = document.getElementById('wxGuide');
+    guide.classList.add('show');
+    guide.setAttribute('aria-hidden', 'false');
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      var btn = this;
+      function done(ok) {
+        btn.textContent = ok ? '已复制 ✓ 粘贴到任意浏览器即可打开' : '复制失败，请长按下方链接手动复制';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(APP_URL).then(function () { done(true); }, function () { legacyCopy(done); });
+      } else {
+        legacyCopy(done);
+      }
+    });
+    function legacyCopy(done) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = APP_URL;
+        ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        done(ok);
+      } catch (e) { done(false); }
+    }
+  } else {
+    // 外部浏览器：立即跳转
+    setTimeout(function () { location.replace(APP_URL); }, 350);
+  }
+})();
+</script>
+</body>
+</html>
