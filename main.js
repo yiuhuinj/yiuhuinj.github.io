@@ -122,7 +122,7 @@
   (function typing() {
     var el = document.getElementById('typed');
     if (!el) return;
-    var roles = ['年级长', '宣传撰稿人', 'AI 训练师', '摄影爱好者', '跨领域学习者'];
+    var roles = ['年级长', '多智能体构建者', '宣传撰稿人', 'AI 训练师', '摄影爱好者', '跨领域学习者'];
     if (reduceMotion) { el.textContent = roles.join(' · '); return; }
 
     var ri = 0, ci = roles[0].length, deleting = false;
@@ -171,7 +171,7 @@
     var DATA = [
       { name: '文案写作', val: 92, desc: '公众号推文 / 新闻通讯稿 / 广播稿，成稿规范、可直接发布；院学生会宣传部现役写手。' },
       { name: '组织统筹', val: 88, desc: '2026级年级长：通知传达、信息汇总、活动组织，多任务并行下的协调与执行。' },
-      { name: 'AI 应用', val: 85, desc: '阿里巴巴达摩院 AI 训练师持证；用 AI 搭建七语言个人网站、辅助写作与数据处理。' },
+      { name: 'AI 应用', val: 88, desc: '达摩院 AI 训练师持证；主导开发六智能体跨境合规系统「镇海关」（溯源率 100%、平台七链实测全通），AI 辅助建站、写作与数据处理。' },
       { name: '设计影像', val: 80, desc: '摄影与基础修图、排版；活动拍摄与宣传物料制作，画廊里都是实拍作品。' },
       { name: '办公应用', val: 82, desc: 'Word / Excel / PowerPoint 熟练，文档排版、基础数据统计与汇报演示。' },
       { name: '双语能力', val: 78, desc: '中外合作办学项目在读，中法双语物流课程，斯特拉斯堡大学联合培养双学位。' }
